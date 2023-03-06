@@ -34,6 +34,7 @@ GO to the file **MLPipline.svg** to see project pipline.
 ### Second HW (6/03)
 #### Составить ТЗ для разметчиков
 1) Разметить бланк Form07 в Supervisely. Примерное время выполнения с использованием скрипта - 1 час.
+![Form07 2](https://user-images.githubusercontent.com/84448247/223055974-400c5baa-3aee-43d1-b92a-00eabedc4243.png)
 
 - Разметить основную часть формы. Каждая ячейка должна быть отдельным классом. 
 В основной части формы 23 строки по 32 ячейки - итого 736 классов. 
@@ -48,7 +49,7 @@ GO to the file **MLPipline.svg** to see project pipline.
 
 2) Нарезать недостающие данные из формы Form07. Примерное время выполнения 4 часа.
 - Нарезать не менее 1000 элементов для класса Chekced и разместить в папку с именем **Х**.
--![Screenshot 2023-03-06 at 15 15 26](https://user-images.githubusercontent.com/84448247/223054963-a2fce0d9-727e-4ba1-9ec5-0128e81eded4.png)
+- ![Screenshot 2023-03-06 at 15 15 26](https://user-images.githubusercontent.com/84448247/223054963-a2fce0d9-727e-4ba1-9ec5-0128e81eded4.png)
 
 - Нарезать не менее 1000 элементов для класса Empthy и разместить в папку с именем **E**.
 - ![Screenshot 2023-03-06 at 15 15 43](https://user-images.githubusercontent.com/84448247/223054987-3579dfa6-3121-4806-9ce7-6b2314fad73a.png)
