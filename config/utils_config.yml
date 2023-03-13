@@ -1,0 +1,3 @@
+shapeCorrection:
+  goodMatchPercent: 0.15
+  mask: './data/mask.jpg'
