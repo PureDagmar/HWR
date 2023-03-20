@@ -1,15 +1,16 @@
+import argparse
 import datetime
 from glob import glob
 
-from clearml import Task
 import pytorch_lightning as pl
-import argparse
+from clearml import Task
 from pytorch_lightning.loggers import TensorBoardLogger
-from callbacks import MySavingCallBack
+
 from clearmltools.dataset import get_dataset
+from train_utils.callbacks import MySavingCallBack
+from train_utils.pl_models import Classifier
 
 MINIO_HOST = "78.140.23.134:9000"
-from pl_models import Classifier
 
 
 def eval_num_classes(dataset_name: str) -> int:
@@ -19,7 +20,6 @@ def eval_num_classes(dataset_name: str) -> int:
 
 
 if __name__ == '__main__':
-
     print(f"Dataset labels: {eval_num_classes('Symbols')}")
     pl.seed_everything(0)
 
@@ -33,6 +33,7 @@ if __name__ == '__main__':
     parser.add_argument("--height", default=42, type=int)
     parser.add_argument("--max_epochs", default=256, type=int)
     args = parser.parse_args()
+
     task = Task.init(
         project_name="BlanksOCR",
         task_name=f"OCR_{args.model_name}_{datetime.datetime.now().strftime('%Y-%m-%d-%H')}",
@@ -40,9 +41,10 @@ if __name__ == '__main__':
         reuse_last_task_id=True,
         auto_connect_frameworks={'tensorboard': True, 'pytorch': False}
     )
+
     saving_callback = MySavingCallBack()
     lr_monitor = pl.callbacks.LearningRateMonitor(logging_interval='epoch')
-    tb_logger = TensorBoardLogger(save_dir="../logs/")
+    tb_logger = TensorBoardLogger(save_dir="logs/")
 
     trainer = pl.Trainer(
         accelerator=args.device,
@@ -60,5 +62,3 @@ if __name__ == '__main__':
         batch_size=args.batch_size,
     )
     trainer.fit(classifier)
-
-

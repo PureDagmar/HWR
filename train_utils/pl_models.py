@@ -1,18 +1,16 @@
 import time
-from multiprocessing import cpu_count
 from typing import Any, Sequence
 
-import cv2
 import pytorch_lightning as pl
 import torch.optim
 import torchmetrics
-from torchvision import transforms
 from torch.nn import functional as F
 from torch.utils.data import random_split, DataLoader
+from torchvision import transforms
 from torchvision.datasets import ImageFolder
 
 from clearmltools.dataset import get_dataset
-from models import OCRBackbones
+from .models import OCRBackbones
 
 
 class Classifier(pl.LightningModule):
