@@ -16,7 +16,7 @@ with open('data/Form07.json', 'r') as file:
 
 
 if __name__ == "__main__":
-    scan_path = '/home/kirill/.clearml/cache/storage_manager/datasets/ds_abd87cae0731423fbdced8d01e6b5493/13329-processed-2.png'
+    scan_path = '/home/kirill/.clearml/cache/storage_manager/datasets/ds_abd87cae0731423fbdced8d01e6b5493/13336-processed-1.png'
     image = cv2.imread(scan_path, cv2.IMREAD_COLOR)
     cv2.imshow('img', cv2.resize(image, (500, 700)))
     # WRITE MAP!!!
