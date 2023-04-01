@@ -10,12 +10,12 @@ def write_result_to_json(result):
         file.write('ID:')
         for i in range(1, 24):
             str_res = ''
-            for j range(1, 10):
-                str_res += result['ID'][i][j]
+            for j in range(1, 10):
+                str_res += result['ID'][i - 1][j - 1]
             file.write('  {0}: {1}'.format(i, str_res))
         file.write('VACCINATION:')
         for i in range(1, 24):
             str_res = ''
             for j in range(1, 24):
-                str_res += result['VACCINATION'][i][j]
+                str_res += result['VACCINATION'][i - 1][j - 1]
             file.write('  {0}: {1}'.format(i, str_res))
