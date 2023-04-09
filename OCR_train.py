@@ -20,7 +20,7 @@ def eval_num_classes(dataset_name: str) -> int:
 
 
 if __name__ == '__main__':
-    print(f"Dataset labels: {eval_num_classes('Symbols')}")
+    print(f"Dataset labels: {eval_num_classes('SymbolsText')}")
     pl.seed_everything(0)
 
     parser = argparse.ArgumentParser(description="BlankOCR Train process")
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     classifier = Classifier(
         model_name=args.model_name,
         input_sizes=(args.height, args.width),
-        num_classes=eval_num_classes('Symbols'),
+        num_classes=eval_num_classes('SymbolsText'),
         learning_rate=args.learning_rate,
         train_size=args.train_size,
         batch_size=args.batch_size,
