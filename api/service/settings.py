@@ -30,6 +30,7 @@ class ServiceConfig(Config):
     log_config: LogConfig
     WORKERS: int = cpu_count()
     RELOAD: bool = False
+    MODEL_NAME: str = "OCRBlanksClassicationModel"
 
 
 def get_config() -> ServiceConfig:

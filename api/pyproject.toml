@@ -19,6 +19,9 @@ gunicorn = "^20.1.0"
 opencv-python = "^4.7.0.72"
 numpy = "^1.24.2"
 clearml = "^1.10.3"
+torch = "^2.0.0"
+boto3 = "^1.26.109"
+python-multipart = "^0.0.6"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
