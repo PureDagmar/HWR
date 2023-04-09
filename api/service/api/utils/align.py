@@ -8,7 +8,7 @@ from service.settings import get_config
 from .cut_cells import hor_lines_cut
 from .shape_correction import align_images
 
-with open('../data/Form07.json', 'r') as file:
+with open('.service/api/data/Form07.json', 'r') as file:
     data = file.read()
     form = json.loads(data)
 sc = get_config()

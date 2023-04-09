@@ -1,6 +1,6 @@
 import yaml
 
-with open('./config/utils_config.yml') as stream:
+with open('.service/api/config/utils_config.yml') as stream:
     config = yaml.safe_load(stream)['resultToJson']
 
 
