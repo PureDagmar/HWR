@@ -16,7 +16,7 @@ def hor_lines_cut(img):
         down_cnt = cnts[0]
         up_cnt = cnts[1]
         result = result[up_cnt[0][0][1]:down_cnt[0][0][1], :]
-    else:
+    elif len(cnts) == 1:
         up_cnt = cnts[0]
         result = result[up_cnt[0][0][1]:, :]
     return result
