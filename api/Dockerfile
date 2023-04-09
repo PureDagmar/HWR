@@ -25,4 +25,7 @@ COPY --from=build main.py gunicorn.config.py ./
 RUN pip install -U --no-cache-dir pip dist/*.whl && \
     rm -rf dist
 
+# For opencv
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
 CMD ["gunicorn", "main:app", "-c", "gunicorn.config.py"]
