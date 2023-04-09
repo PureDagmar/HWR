@@ -6,3 +6,4 @@
 !service
 !gunicorn.config.py
 !README.md
+!clearml.conf

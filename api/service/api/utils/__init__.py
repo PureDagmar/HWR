@@ -22,7 +22,6 @@ def process_result(arr: np.ndarray, labels: dict) -> str:
 
 
 def process_image(img: np.ndarray) -> np.ndarray | None:
-    print(img.shape)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     gray_img[gray_img < 240] = 0

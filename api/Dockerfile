@@ -27,5 +27,7 @@ RUN pip install -U --no-cache-dir pip dist/*.whl && \
 
 # For opencv
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
-
+COPY ./service ./service
+COPY ./clearml.conf /root/clearml.conf
+RUN clearml-init --file /root/clearml.conf
 CMD ["gunicorn", "main:app", "-c", "gunicorn.config.py"]

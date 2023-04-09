@@ -67,4 +67,4 @@ build:
 	docker build . -t shifo-ocr
 
 run: build
-	docker run -p 5452:5452 --env-file ./.env shifo-ocr
+	docker run -p 5452:5452 --env-file ./.env --gpus all shifo-ocr

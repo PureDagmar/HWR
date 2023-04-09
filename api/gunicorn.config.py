@@ -5,7 +5,7 @@ from service import log, settings
 
 # The socket to bind.
 host = env("HOST", "0.0.0.0")
-port = int(env("ML_MANAGER_PORT", "8080"))
+port = int(env("PORT", "8080"))
 bind = f"{host}:{port}"
 
 # The maximum number of pending connections.

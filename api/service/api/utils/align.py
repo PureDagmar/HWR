@@ -8,7 +8,7 @@ from service.settings import get_config
 from .cut_cells import hor_lines_cut
 from .shape_correction import align_images
 
-with open('.service/api/data/Form07.json', 'r') as file:
+with open('./service/api/data/Form07.json', 'r') as file:
     data = file.read()
     form = json.loads(data)
 sc = get_config()
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
     y, x = 5, 50
 
-    with open('../config/form_map.yml') as stream:
+    with open('./service/api/config/form_map.yml') as stream:
         data = yaml.safe_load(stream)['Form_map']['ID']
         for i in range(1, 24):
             for j in range(1, 10):
@@ -97,7 +97,7 @@ if __name__ == "__main__":
                                    cord[0][0] - y:cord[1][0] + y]
                 cv2.imshow('cell', hor_lines_cut(area_of_interest))
                 cv2.waitKey()
-    with open('../config/form_map.yml') as stream:
+    with open('./service/api/config/form_map.yml') as stream:
         data = yaml.safe_load(stream)['Form_map']['VACCINATION']
         for i in range(1, 24):
             for j in range(10, 33):
