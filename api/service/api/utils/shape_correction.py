@@ -1,14 +1,13 @@
-import yaml
-
 import cv2
 import numpy as np
 
-with open('config/utils_config.yml') as stream:
-    config = yaml.safe_load(stream)['shapeCorrection']
+from service.settings import get_config
+
+sc = get_config()
 
 
 def align_images(img):
-    imReference = cv2.imread(config['mask'], cv2.IMREAD_COLOR)
+    imReference = cv2.imread(sc.mask, cv2.IMREAD_COLOR)
     # Change size
     if not imReference.shape[1] * 0.90 < img.shape[1] < imReference.shape[1] * 1.1:
         img = cv2.resize(img, (imReference.shape[1], imReference.shape[0]))
@@ -24,7 +23,7 @@ def align_images(img):
     matches = matcher.match(descriptors1, descriptors2, None)
     matches = sorted(matches, key=lambda x: x.distance)
     # Remove not so good matches
-    numGoodMatches = int(len(matches) * config['goodMatchPercent'])
+    numGoodMatches = int(len(matches) * sc.goodMatchPercent)
     matches = matches[:numGoodMatches]
     # Extract location of good matches
     points1 = np.zeros((len(matches), 2), dtype=np.float32)

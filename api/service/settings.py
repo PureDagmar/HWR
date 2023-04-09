@@ -31,6 +31,15 @@ class ServiceConfig(Config):
     WORKERS: int = cpu_count()
     RELOAD: bool = False
     MODEL_NAME: str = "OCRBlanksClassicationModel"
+    mask: str = "./service/api/data/mask.jpg"
+    goodMatchPercent: float = 0.15
+    xBorder: int = 50
+    yBorder: int = 5
+    formMapPath: str = './service/api/config/form_map.yml'
+    pathToSave: str = './service/api/result.yml'
+    height: int = 42
+    width: int = 30
+    device: str = 'cuda:0'
 
 
 def get_config() -> ServiceConfig:
