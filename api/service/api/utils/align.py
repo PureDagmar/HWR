@@ -46,6 +46,8 @@ def write_cell_images(form_path):
     cell_image = dict()
     cell_image['ID'] = []
     cell_image['VACCINATION'] = []
+    point_x = sc.pointCutX
+    point_y = sc.pointCutY
     with open(sc.formMapPath) as stream:
         data = yaml.safe_load(stream)['Form_map']['ID']
         for i in range(1, 24):
@@ -54,7 +56,10 @@ def write_cell_images(form_path):
                 cord = data[i][j]
                 area_of_interest = image[cord[0][1] - x:cord[1][1] + x,
                                    cord[0][0] - y:cord[1][0] + y]
-                id.append(hor_lines_cut(area_of_interest))
+                id.append(hor_lines_cut(area_of_interest)[
+                          point_x[0]:point_x[1],
+                          point_y[0]:point_y[1]
+                          ])
             cell_image['ID'].append(id)
     with open(sc.formMapPath) as stream:
         data = yaml.safe_load(stream)['Form_map']['VACCINATION']
@@ -64,7 +69,10 @@ def write_cell_images(form_path):
                 cord = data[i][j]
                 area_of_interest = image[cord[0][1] - x:cord[1][1] + x,
                                    cord[0][0] - y:cord[1][0] + y]
-                vac.append(hor_lines_cut(area_of_interest))
+                vac.append(hor_lines_cut(area_of_interest)[
+                           point_x[0]:point_x[1],
+                           point_y[0]:point_y[1]
+                           ])
             cell_image['VACCINATION'].append(vac)
     # with open('./config/result.json', 'w') as fp:
     #     json.dump(cell_image, fp)
