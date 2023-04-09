@@ -15,11 +15,16 @@ def file_to_img(file: UploadFile) -> np.ndarray:
     return image
 
 
-def process_result(arr: np.ndarray) -> str:
-    print(arr)
+def process_result(arr: np.ndarray, labels: dict) -> str:
     label = np.argmax(arr)
-    if label == 10:
-        return ""
-    if label == 11:
-        return "X"
-    return str(label)
+    label = labels[int(label)]
+    return label
+
+
+def process_image(img: np.ndarray) -> np.ndarray | None:
+    print(img.shape)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray_img[gray_img < 240] = 0
+    img = cv2.cvtColor(gray_img, cv2.COLOR_GRAY2RGB)
+    return img
