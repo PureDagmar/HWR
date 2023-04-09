@@ -35,6 +35,8 @@ class ServiceConfig(Config):
     goodMatchPercent: float = 0.15
     xBorder: int = 50
     yBorder: int = 5
+    pointCutX = [20, 95]
+    pointCutY = [5, 65]
     formMapPath: str = './service/api/config/form_map.yml'
     pathToSave: str = './service/api/result.yml'
     height: int = 42
