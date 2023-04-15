@@ -1,3 +1,11 @@
 shapeCorrection:
   goodMatchPercent: 0.15
   mask: './data/mask.jpg'
+align:
+  xBorder: 50
+  yBorder: 5
+  formMapPath: './config/form_map.yml'
+  pointCutX: [20, 95]
+  pointCutY: [5, 65]
+resultToJson:
+  pathToSave: './result.yml'
