@@ -47,11 +47,10 @@ class Classifier(pl.LightningModule):
         return [optimizer], [scheduler]
 
     def prepare_data(self) -> None:
-        _, dataset_path = get_dataset("Symbols")
+        _, dataset_path = get_dataset("SymbolsText")
         transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Resize((self.hparams.height, self.hparams.width)),
-
         ])
         dataset = ImageFolder(dataset_path, transform=transform)
         self.class_to_idx = dataset.class_to_idx
