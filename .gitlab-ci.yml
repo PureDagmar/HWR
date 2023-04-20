@@ -13,6 +13,7 @@ build-job:
     stage: build
     script:
         - echo "Installin packages ..."
+        - pip wheel --use-pep517 "pycrypto (==2.6.1)"
         - make setup
 
 lintest-1:
@@ -20,7 +21,6 @@ lintest-1:
     script:
         - echo "Starting linter 1"
         - poetry add black
-        - cd ./api
         - poetry run black main.py
 
 lintest-2:
@@ -28,5 +28,4 @@ lintest-2:
     script:
         - echo "Starting linter 2"
         - poetry add pylint
-        - cd ./api
         - poetry run pylint main.py --disable C,W
