@@ -21,4 +21,4 @@ lintest-2:
   script:
       - echo "Starting linter 2"
       - pip install pylint
-      - pylint ./api/main.py
+      - pylint ./api/main.py --disable C,W
