@@ -18,12 +18,12 @@ lintest-1:
     stage: test
     script:
         - echo "Starting linter 1"
-        - pip install black
-        - black ./api/main.py
+        - poetry add black
+        - poetry run black ./api/main.py
 
 lintest-2:
     stage: test
     script:
         - echo "Starting linter 2"
-        - pip install pylint
-        - pylint ./api/main.py --disable C,W
+        - poetry add pylint
+        - poetry run pylint ./api/main.py --disable C,W
