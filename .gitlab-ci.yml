@@ -8,6 +8,8 @@ build-job:
     stage: build
     script:
         - echo "Installin packages ..."
+        - make setup
+        - make activate
 
 lintest-1:
   stage: test
