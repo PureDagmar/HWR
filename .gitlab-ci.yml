@@ -8,13 +8,12 @@ before_script:
     - apt install make
     - pip install poetry
     - cd ./api
+    - make setup
 
 build-job:
     stage: build
     script:
         - echo "Installin packages ..."
-        - pip wheel --use-pep517 "pycrypto (==2.6.1)"
-        - make setup
 
 lintest-1:
     stage: test
