@@ -6,13 +6,13 @@ stages:
 
 before_script:
     - apt install make
+    - pip install poetry
+    - cd ./api
 
 build-job:
     stage: build
     script:
         - echo "Installin packages ..."
-        - pip install poetry
-        - cd ./api
         - make setup
 
 lintest-1:
