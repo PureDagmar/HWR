@@ -8,6 +8,8 @@ build-job:
     stage: build
     script:
         - echo "Installin packages ..."
+        - curl -sSL https://install.python-poetry.org | python3 -
+        - sudo apt install make
         - make setup
         - make activate
 
