@@ -13,7 +13,7 @@ build-job:
         - echo "Installin packages ..."
         - pip install poetry
         - make setup
-        - make activate
+        - poetry run
 
 lintest-1:
     stage: test
