@@ -12,6 +12,7 @@ build-job:
     script:
         - echo "Installin packages ..."
         - pip install poetry
+        - cd ./api
         - make setup
 
 lintest-1:
@@ -19,11 +20,13 @@ lintest-1:
     script:
         - echo "Starting linter 1"
         - poetry add black
-        - poetry run black ./api/main.py
+        - cd ./api
+        - poetry run black main.py
 
 lintest-2:
     stage: test
     script:
         - echo "Starting linter 2"
         - poetry add pylint
-        - poetry run pylint ./api/main.py --disable C,W
+        - cd ./api
+        - poetry run pylint main.py --disable C,W
