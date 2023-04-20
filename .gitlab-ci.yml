@@ -4,25 +4,27 @@ stages:
     - build
     - test
 
+before_script:
+    - apt install make
+
 build-job:
     stage: build
     script:
         - echo "Installin packages ..."
         - curl -sSL https://install.python-poetry.org | python3 -
-        - sudo apt install make
         - make setup
         - make activate
 
 lintest-1:
-  stage: test
-  script:
-      - echo "Starting linter 1"
-      - pip install black
-      - black ./api/main.py
+    stage: test
+    script:
+        - echo "Starting linter 1"
+        - pip install black
+        - black ./api/main.py
 
 lintest-2:
-  stage: test
-  script:
-      - echo "Starting linter 2"
-      - pip install pylint
-      - pylint ./api/main.py --disable C,W
+    stage: test
+    script:
+        - echo "Starting linter 2"
+        - pip install pylint
+        - pylint ./api/main.py --disable C,W
