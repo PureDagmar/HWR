@@ -28,3 +28,11 @@ lintest-2:
         - echo "Starting linter 2"
         - poetry add pylint
         - poetry run pylint main.py --disable C,W
+
+
+lintest-3:
+    stage: test
+    script:
+        - echo "Starting linter 3"
+        - poetry add flake8
+        - poetry run flake8
