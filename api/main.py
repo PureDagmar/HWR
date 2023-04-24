@@ -15,7 +15,7 @@ if __name__ == "__main__":
     workers = config.WORKERS
     reload = config.RELOAD
     if reload:
-        logging.info(f"RUN AS UVICORN INSTANCE. RELOAD")
+        logging.info("RUN AS UVICORN INSTANCE. RELOAD")
         uvicorn.run("main:app", host=host, port=port, reload=reload)
     else:
         logging.info(f"RUN AS UVICORN INSTANCE. WORKERS: {workers}")
