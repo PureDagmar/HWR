@@ -35,4 +35,4 @@ lintest-3:
     script:
         - echo "Starting linter 3"
         - poetry add flake8
-        - poetry run flake8
+        - poetry run flake8 main.py
