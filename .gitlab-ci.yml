@@ -1,0 +1,38 @@
+image: python:3.10.11-bullseye
+
+stages:
+    - build
+    - test
+
+before_script:
+    - apt install make
+    - pip install poetry
+    - cd ./api
+    - make setup
+
+build-job:
+    stage: build
+    script:
+        - echo "Installin packages ..."
+
+lintest-1:
+    stage: test
+    script:
+        - echo "Starting linter 1"
+        - poetry add black
+        - poetry run black main.py
+
+lintest-2:
+    stage: test
+    script:
+        - echo "Starting linter 2"
+        - poetry add pylint
+        - poetry run pylint main.py --disable C,W
+
+
+lintest-3:
+    stage: test
+    script:
+        - echo "Starting linter 3"
+        - poetry add flake8
+        - poetry run flake8 main.py
